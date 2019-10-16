@@ -1,12 +1,12 @@
 package mate.academy.spring;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import java.sql.SQLException;
+import java.util.List;
+
 import mate.academy.spring.config.AppConfig;
 import mate.academy.spring.entity.User;
 import mate.academy.spring.service.UserService;
-
-import java.sql.SQLException;
-import java.util.List;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainApp {
     public static void main(String[] args) throws SQLException {

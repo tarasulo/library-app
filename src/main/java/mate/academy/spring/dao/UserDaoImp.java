@@ -1,12 +1,12 @@
 package mate.academy.spring.dao;
 
+import java.util.List;
+import javax.persistence.TypedQuery;
+
+import mate.academy.spring.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import mate.academy.spring.entity.User;
-
-import javax.persistence.TypedQuery;
-import java.util.List;
 
 @Repository
 public class UserDaoImp implements UserDao {
