@@ -1,4 +1,4 @@
-package mate.academy.spring.entity;
+package library.app.spring.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

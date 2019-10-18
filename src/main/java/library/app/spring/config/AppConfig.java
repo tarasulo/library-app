@@ -1,9 +1,9 @@
-package mate.academy.spring.config;
+package library.app.spring.config;
 
 import java.util.Properties;
 import javax.sql.DataSource;
 
-import mate.academy.spring.entity.User;
+import library.app.spring.entity.User;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +20,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 @ComponentScans(value = {
-        @ComponentScan("mate.academy.spring.dao"),
-        @ComponentScan("mate.academy.spring.service")
+        @ComponentScan("library.app.spring.dao"),
+        @ComponentScan("library.app.spring.service")
 })
 public class AppConfig {
 

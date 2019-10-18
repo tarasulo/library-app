@@ -1,8 +1,8 @@
-package mate.academy.spring.dao;
+package library.app.spring.dao;
 
 import java.util.List;
 
-import mate.academy.spring.entity.User;
+import library.app.spring.entity.User;
 
 public interface UserDao {
     void add(User user);

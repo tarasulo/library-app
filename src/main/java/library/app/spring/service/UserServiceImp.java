@@ -1,9 +1,9 @@
-package mate.academy.spring.service;
+package library.app.spring.service;
 
 import java.util.List;
 
-import mate.academy.spring.dao.UserDao;
-import mate.academy.spring.entity.User;
+import library.app.spring.dao.UserDao;
+import library.app.spring.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

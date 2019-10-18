@@ -1,11 +1,11 @@
-package mate.academy.spring;
+package library.app.spring;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import mate.academy.spring.config.AppConfig;
-import mate.academy.spring.entity.User;
-import mate.academy.spring.service.UserService;
+import library.app.spring.config.AppConfig;
+import library.app.spring.entity.User;
+import library.app.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainApp {
