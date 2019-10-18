@@ -1,8 +1,9 @@
-package library.app.spring.dao;
+package library.app.spring.dao.impl;
 
 import java.util.List;
 import javax.persistence.TypedQuery;
 
+import library.app.spring.dao.UserDao;
 import library.app.spring.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
