@@ -28,10 +28,10 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> findByName(String name) {
+    public List<Book> findByTitle(String title) {
         TypedQuery<Book> query = sessionFactory.getCurrentSession()
-                .createQuery("from Book WHERE name=:name", Book.class);
-        query.setParameter("name", name);
+                .createQuery("from Book WHERE title=:title", Book.class);
+        query.setParameter("title", title);
         return query.getResultList();
     }
 }
