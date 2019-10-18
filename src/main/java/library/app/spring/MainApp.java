@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import library.app.spring.config.AppConfig;
+import library.app.spring.entity.Book;
 import library.app.spring.entity.User;
+import library.app.spring.service.BookService;
 import library.app.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -31,6 +33,23 @@ public class MainApp {
             System.out.println();
         }
 
+        BookService bookService = context.getBean(BookService.class);
+
+        // Add Books
+        bookService.add(new Book("Effective Java: 3rd Edition", 2019, 650.));
+        bookService.add(new Book("Java: A Beginner's Guide, Seventh Edition", 2019, 350.));
+        bookService.add(new Book("Head First Java", 2003, 99.99));
+        bookService.add(new Book("A Dance with Dragons", 2011, 299.));
+
+        // Get Books
+        List<Book> books = bookService.listBooks();
+        for (Book book : books) {
+            System.out.println("Book id = " + book.getId());
+            System.out.println("Book name = " + book.getName());
+            System.out.println("Book year = " + book.getYear());
+            System.out.println("Book price = " + book.getPrice());
+            System.out.println();
+        }
         context.close();
     }
 }
