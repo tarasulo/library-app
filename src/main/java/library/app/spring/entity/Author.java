@@ -27,10 +27,7 @@ public class Author {
     @Column(name = "surname")
     private String surname;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "authors_books",
-            joinColumns = @JoinColumn(name = "author_id", referencedColumnName = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"))
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
     private List<Book> books;
 
     public Author() {

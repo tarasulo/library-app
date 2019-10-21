@@ -22,11 +22,11 @@ public class Rent {
     @Column(name = "rent_date")
     private LocalDate rentDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id", referencedColumnName = "book_id")
     private Book book;
 
