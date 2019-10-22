@@ -8,5 +8,5 @@ public interface BookDao {
 
     List<Book> listBooks();
 
-    List<Book> findByName(String name);
+    List<Book> findByTitle(String title);
 }

@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Book> findByName(String name) {
-        return null;
+    public List<Book> findByTitle(String title) {
+        return bookDao.findByTitle(title);
     }
 }

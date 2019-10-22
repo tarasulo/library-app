@@ -8,5 +8,5 @@ public interface BookService {
 
     List<Book> listBooks();
 
-    List<Book> findByName(String name);
+    List<Book> findByTitle(String name);
 }
