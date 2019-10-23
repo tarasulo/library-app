@@ -1,6 +1,7 @@
 package library.app.spring.service;
 
 import java.util.List;
+
 import library.app.spring.entity.Book;
 
 public interface BookService {
@@ -9,4 +10,6 @@ public interface BookService {
     List<Book> listBooks();
 
     List<Book> findByTitle(String name);
+
+    Book getById(Long id);
 }
