@@ -12,7 +12,7 @@ import library.app.spring.entity.Rent;
 import library.app.spring.entity.User;
 import library.app.spring.service.AuthorService;
 import library.app.spring.service.BookService;
-import library.app.spring.service.RentService;
+import library.app.spring.service.LibraryService;
 import library.app.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -60,8 +60,7 @@ public class MainApp {
         joshuaBloch.setBooks(javaBook);
         LocalDate localDate = LocalDate.now();
         Rent firstRent = new Rent(localDate, davidMiller, effectialJava, true);
-        RentService rentService = context.getBean(RentService.class);
-        rentService.add(firstRent);
+        LibraryService libraryService = context.getBean(LibraryService.class);
         // Get Books
         List<Book> books = bookService.listBooks();
         for (Book book : books) {

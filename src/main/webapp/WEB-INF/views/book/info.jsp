@@ -16,6 +16,6 @@
 <c:forEach var="author" items="${book.authors}">
     <p>${author.toString()}</p>
 </c:forEach>
-<a href="${pageContext.request.contextPath}/book/all">Return to the books page</a>
+<a href="${pageContext.request.contextPath}/book/allBooks">Return to the books page</a>
 </body>
 </html>
