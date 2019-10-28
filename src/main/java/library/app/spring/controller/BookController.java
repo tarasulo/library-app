@@ -22,10 +22,10 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/allBooks")
+    @GetMapping("/all")
     public String getAllBooks(ModelMap model) {
         model.put("books", bookService.listBooks());
-        return "book/allBooks";
+        return "book/all";
     }
 
     @GetMapping("/{id}")
@@ -37,13 +37,24 @@ public class BookController {
     @GetMapping("/find")
     public String findByTittle(@RequestParam String title, Model model) {
         List<Book> books = bookService.findByTitle(title);
-        model.addAttribute("allBooks", books);
-        return "book/allBooks";
+        model.addAttribute("all", books);
+        return "book/all";
     }
 
-    @PostMapping
-    public String addBook(@ModelAttribute Book book) {
+    @PostMapping("/create")
+    public String addBook(@ModelAttribute Book book, ModelMap model) {
         bookService.add(book);
-        return "forward:/book/allBooks";
+        return getAllBooks(model);
+    }
+
+    @GetMapping("/create")
+    public String addBookPage() {
+        return "book/create";
+    }
+
+    @GetMapping("/delete")
+    public String deleteBook(@RequestParam("book_id") Long id, ModelMap modelMap) {
+        bookService.delete(id);
+        return getAllBooks(modelMap);
     }
 }

@@ -16,29 +16,29 @@ public class RentController {
     private static final Long USER_ID = 1L;
 
     @Autowired
-    private LibraryService libraryService;
-    @Autowired
     private UserService userService;
     @Autowired
     private BookService bookService;
+    @Autowired
+    private LibraryService libraryService;
 
     @GetMapping("/rentbook")
     public String rentBook(@RequestParam("book_id") Long bookId, ModelMap model) {
         model.put("book", libraryService.rentBook(userService.getById(USER_ID),
                 bookService.getById(bookId)));
-        return "book/allBooks";
+        return "book/all";
     }
 
     @GetMapping("/returnbook")
     public String returnBook(@RequestParam("book_id") Long id) {
         libraryService.returnBook(userService.getById(USER_ID), bookService.getById(id));
-        return "book/allBooks";
+        return "book/all";
     }
 
     @GetMapping("/rentedBooks")
     public String getBooksRentByUser(@RequestParam("user_id") Long id, ModelMap model) {
         model.addAttribute("books", libraryService.getBooksRentByUser(userService.getById(id)));
-        return "book/allBooks";
+        return "book/all";
     }
 
 }

@@ -12,4 +12,6 @@ public interface BookService {
     List<Book> findByTitle(String name);
 
     Book getById(Long id);
+
+    void delete(Long bookId);
 }

@@ -4,12 +4,13 @@
     <title>Create Book</title>
 </head>
 <body>
+<jsp:include page="../header.jsp" />
 <h1>Create book Page!</h1>
 <form action="${pageContext.request.contextPath}/book/create" method="post">
     <table>
         <tr>
             <td>Book title:</td>
-            <td><input value="${name}" name="name"/></td>
+            <td><input value="${title}" name="title"/></td>
         </tr>
         <tr>
             <td>Year:</td>
