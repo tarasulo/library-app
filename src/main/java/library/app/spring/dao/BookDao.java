@@ -1,6 +1,7 @@
 package library.app.spring.dao;
 
 import java.util.List;
+
 import library.app.spring.entity.Book;
 
 public interface BookDao {
@@ -9,4 +10,8 @@ public interface BookDao {
     List<Book> listBooks();
 
     List<Book> findByTitle(String title);
+
+    Book getById(Long id);
+
+    void delete(Long bookId);
 }

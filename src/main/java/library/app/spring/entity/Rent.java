@@ -36,6 +36,11 @@ public class Rent {
     public Rent() {
     }
 
+    public Rent(User user, Book book) {
+        this.user = user;
+        this.book = book;
+    }
+
     public Rent(LocalDate rentDate, User user, Book book, boolean active) {
         this.rentDate = rentDate;
         this.user = user;

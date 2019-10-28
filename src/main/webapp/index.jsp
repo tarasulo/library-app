@@ -4,6 +4,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  Hello world!!!
+  <jsp:include page="WEB-INF/views/header.jsp" />
+  Hello Mate!!!
   </body>
 </html>

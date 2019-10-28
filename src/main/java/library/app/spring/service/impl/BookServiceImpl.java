@@ -32,4 +32,16 @@ public class BookServiceImpl implements BookService {
     public List<Book> findByTitle(String title) {
         return bookDao.findByTitle(title);
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Book getById(Long id) {
+        return bookDao.getById(id);
+    }
+
+    @Transactional
+    @Override
+    public void delete(Long bookId) {
+        bookDao.delete(bookId);
+    }
 }
