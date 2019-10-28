@@ -4,7 +4,6 @@ import java.util.List;
 
 import library.app.spring.entity.Book;
 import library.app.spring.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/book")
 public class BookController {
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping("/all")
     public String getAllBooks(ModelMap model) {

@@ -8,14 +8,16 @@ import library.app.spring.entity.Book;
 import library.app.spring.entity.Rent;
 import library.app.spring.entity.User;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class LibraryDaoImpl implements LibraryDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public LibraryDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public Rent rentBook(User user, Book book) {

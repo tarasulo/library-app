@@ -5,15 +5,17 @@ import java.util.List;
 import library.app.spring.dao.AuthorDao;
 import library.app.spring.entity.Author;
 import library.app.spring.service.AuthorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
-    @Autowired
-    private AuthorDao authorDao;
+    private final AuthorDao authorDao;
+
+    public AuthorServiceImpl(AuthorDao authorDao) {
+        this.authorDao = authorDao;
+    }
 
     @Transactional
     @Override

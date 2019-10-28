@@ -3,7 +3,6 @@ package library.app.spring.controller;
 import library.app.spring.service.BookService;
 import library.app.spring.service.LibraryService;
 import library.app.spring.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RentController {
     private static final Long USER_ID = 1L;
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private BookService bookService;
-    @Autowired
-    private LibraryService libraryService;
+    private final UserService userService;
+    private final BookService bookService;
+    private final LibraryService libraryService;
+
+    public RentController(UserService userService, BookService bookService,
+                          LibraryService libraryService) {
+        this.userService = userService;
+        this.bookService = bookService;
+        this.libraryService = libraryService;
+    }
 
     @GetMapping("/rentbook")
     public String rentBook(@RequestParam("book_id") Long bookId, ModelMap model) {
