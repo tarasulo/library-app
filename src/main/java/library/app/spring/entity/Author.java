@@ -1,5 +1,6 @@
 package library.app.spring.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class Author {
     private String surname;
 
     @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
 
     public Author() {
     }
@@ -34,6 +35,12 @@ public class Author {
     public Author(String name, String surname) {
         this.name = name;
         this.surname = surname;
+    }
+
+    public Author(String name, String surname, List<Book> books) {
+        this.name = name;
+        this.surname = surname;
+        this.books = books;
     }
 
     public Long getId() {
@@ -66,5 +73,11 @@ public class Author {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    @Override
+    public String toString() {
+        return "Author " + name + ' ' + surname + ' '
+                + " (with id " + id + " )";
     }
 }

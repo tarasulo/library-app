@@ -1,6 +1,7 @@
 package library.app.spring.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import library.app.spring.dao.UserDao;
 import library.app.spring.entity.User;
@@ -26,6 +27,12 @@ public class UserServiceImp implements UserService {
     @Override
     public User getById(Long id) {
         return userDao.getById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Optional<User> getByUserName(String username) {
+        return userDao.getByUserName(username);
     }
 
     @Transactional(readOnly = true)

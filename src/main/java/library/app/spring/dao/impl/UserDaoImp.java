@@ -1,6 +1,7 @@
 package library.app.spring.dao.impl;
 
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.TypedQuery;
 
 import library.app.spring.dao.UserDao;
@@ -32,5 +33,19 @@ public class UserDaoImp implements UserDao {
     @Override
     public User getById(Long id) {
         return sessionFactory.getCurrentSession().get(User.class, id);
+    }
+
+    @Override
+    public Optional<User> getByUserName(String username) {
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
+                "from User WHERE username =:username", User.class);
+        query.setParameter("username", username);
+        Optional<User> optionalUser;
+        try {
+            optionalUser = Optional.of(query.getSingleResult());
+        } catch (Exception e) {
+            optionalUser = Optional.empty();
+        }
+        return optionalUser;
     }
 }

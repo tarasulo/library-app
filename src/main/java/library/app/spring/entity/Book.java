@@ -30,12 +30,18 @@ public class Book {
     private Double price;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "authors_books",
-            joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"),
-            inverseJoinColumns
-                    = @JoinColumn(name = "author_id", referencedColumnName = "author_id"))
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
     private List<Author> authors = new ArrayList<>();
 
     public Book() {
+    }
+
+    public Book(String title, Integer year, Double price, List<Author> authors) {
+        this.title = title;
+        this.year = year;
+        this.price = price;
+        this.authors = authors;
     }
 
     public Book(String title, Integer year, Double price) {
@@ -84,4 +90,13 @@ public class Book {
         this.authors = authors;
     }
 
+    @Override
+    public String toString() {
+        return "Book{"
+                + "id=" + id
+                + ", title='" + title + '\''
+                + ", year=" + year
+                + ", price=" + price
+                + ", authors=" + authors + '}';
+    }
 }
