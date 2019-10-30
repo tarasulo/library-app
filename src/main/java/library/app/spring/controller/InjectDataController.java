@@ -41,7 +41,7 @@ public class InjectDataController {
     }
 
     @GetMapping
-    public String injectData0() {
+    public String injectData() {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         UserService userService = context.getBean(UserService.class);
@@ -69,7 +69,7 @@ public class InjectDataController {
     }
 
     @PostConstruct
-    public void injectData() {
+    public void injectUsers() {
         roleService.add(USER);
         roleService.add(ADMIN);
 
