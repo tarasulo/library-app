@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/rent")
 public class RentController {
-    private static final Long USER_ID = 1L;
 
     private final UserService userService;
     private final BookService bookService;
@@ -27,14 +26,14 @@ public class RentController {
 
     @GetMapping("/rentbook")
     public String rentBook(@RequestParam("book_id") Long bookId, ModelMap model) {
-        model.put("book", libraryService.rentBook(userService.getById(USER_ID),
+        model.put("book", libraryService.rentBook(userService.getById(bookId),
                 bookService.getById(bookId)));
         return "book/all";
     }
 
     @GetMapping("/returnbook")
     public String returnBook(@RequestParam("book_id") Long id) {
-        libraryService.returnBook(userService.getById(USER_ID), bookService.getById(id));
+        libraryService.returnBook(userService.getById(id), bookService.getById(id));
         return "book/all";
     }
 

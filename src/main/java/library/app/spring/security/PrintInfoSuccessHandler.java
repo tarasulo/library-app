@@ -10,8 +10,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class PrintInfoSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest req, HttpServletResponse resp,
-                                        Authentication auth)
-            throws IOException {
+                                        Authentication auth) throws IOException {
         resp.sendRedirect("/");
     }
 }
