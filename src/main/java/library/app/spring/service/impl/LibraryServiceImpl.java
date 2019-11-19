@@ -7,15 +7,17 @@ import library.app.spring.entity.Book;
 import library.app.spring.entity.Rent;
 import library.app.spring.entity.User;
 import library.app.spring.service.LibraryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class LibraryServiceImpl implements LibraryService {
 
-    @Autowired
-    private LibraryDao libraryDao;
+    private final LibraryDao libraryDao;
+
+    public LibraryServiceImpl(LibraryDao libraryDao) {
+        this.libraryDao = libraryDao;
+    }
 
     @Transactional
     @Override

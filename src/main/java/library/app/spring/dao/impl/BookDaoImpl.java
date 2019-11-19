@@ -6,14 +6,16 @@ import javax.persistence.TypedQuery;
 import library.app.spring.dao.BookDao;
 import library.app.spring.entity.Book;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookDaoImpl implements BookDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public BookDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void add(Book book) {

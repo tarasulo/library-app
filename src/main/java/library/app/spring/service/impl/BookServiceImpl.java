@@ -5,15 +5,17 @@ import java.util.List;
 import library.app.spring.dao.BookDao;
 import library.app.spring.entity.Book;
 import library.app.spring.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BookServiceImpl implements BookService {
 
-    @Autowired
-    private BookDao bookDao;
+    private final BookDao bookDao;
+
+    public BookServiceImpl(BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
 
     @Transactional
     @Override

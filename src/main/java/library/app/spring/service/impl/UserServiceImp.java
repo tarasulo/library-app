@@ -1,19 +1,22 @@
 package library.app.spring.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import library.app.spring.dao.UserDao;
 import library.app.spring.entity.User;
 import library.app.spring.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImp implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
+
+    public UserServiceImp(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Transactional
     @Override
@@ -24,6 +27,12 @@ public class UserServiceImp implements UserService {
     @Override
     public User getById(Long id) {
         return userDao.getById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Optional<User> getByUserName(String username) {
+        return userDao.getByUserName(username);
     }
 
     @Transactional(readOnly = true)

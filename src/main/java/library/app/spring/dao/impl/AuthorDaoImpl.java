@@ -6,14 +6,16 @@ import javax.persistence.TypedQuery;
 import library.app.spring.dao.AuthorDao;
 import library.app.spring.entity.Author;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class AuthorDaoImpl implements AuthorDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public AuthorDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void add(Author author) {
